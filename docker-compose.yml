@@ -1,0 +1,27 @@
+
+version: '3.8'
+
+services:
+  runtime:
+      build:
+        context: .
+        dockerfile: Dockerfile
+      container_name: todo-app
+      ports:
+        - "52000:7071"
+      depends_on:
+        - database
+      volumes: 
+        - .output/dotnet:/home/site/wwwroot
+
+  database:
+      image: postgres:14.1-alpine
+      container_name: sample-db
+      hostname: demo-db
+      environment:
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=postgres
+      ports:
+        - "6433:5432"
+      volumes:
+        - ./.output/:/app/opt/db/
