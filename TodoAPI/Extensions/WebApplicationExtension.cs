@@ -11,7 +11,8 @@ internal static class WebApplicationExtension
     internal static WebApplication ConfigureWebApp(this WebApplication web)
     {
         web
-            .UseMiddlewares();
+            .UseMiddlewares()
+            .UseWithEnrichingCors();
         return web;
     }
     
@@ -32,4 +33,11 @@ internal static class WebApplicationExtension
             {
                 endpoints.MapControllers();
             });
+
+    private static WebApplication UseWithEnrichingCors(this IApplicationBuilder applicationBuilder)
+    {
+        applicationBuilder.UseCors();
+
+        return (WebApplication)applicationBuilder;
+    }
 }

@@ -27,7 +27,7 @@ namespace TodoAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> Get(Guid id)
         {
-            var result = await _todoService.Fetch(id);
+            var result = await _todoService.Get(id);
             return Ok(result);
         }
 
@@ -39,7 +39,7 @@ namespace TodoAPI.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Put(UpdateTodoDto updateTodo)
+        public async Task<IActionResult> Put(GetTodoDto updateTodo)
         {
             await _todoService.Update(updateTodo);
             return NoContent();

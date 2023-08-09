@@ -1,0 +1,78 @@
+﻿html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.title {
+    font-size: xx-large;
+    color: #9C9C9C;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.main {
+    max-width: 1200px;
+    margin: 0 auto;
+    /*display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;*/
+}
+.form {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.row {
+    width: 50%;
+    padding: 5px;
+}
+.btnBar {
+    padding-top: 10px;
+    justify-content: end;
+}
+
+.cols {
+    width: 100%;
+}
+
+button {
+    border: none;
+    background-color: rgb(144, 202, 249);
+    color: rgba(0, 0, 0, 0.87);
+    border-radius: 4px;
+    width: auto;
+}
+
+input {
+    width: 100%;
+}
+
+.select {
+    border: solid 1px gray;
+    width: 100px;
+    height: 30px;
+}
+
+@media screen and (min-width: 800px) {
+    .aside {
+        flex: 2.5;
+    }
+
+    .content {
+        flex: 7.5;
+    }
+}

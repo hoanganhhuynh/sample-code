@@ -1,5 +1,6 @@
 ﻿
 using System.Reflection;
+using Domain.MappingProfile;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -12,10 +13,11 @@ namespace TodoAPI.Extensions
             var services = builder.Services;
             services
                 .AddDbContext(builder)
-                .AddAutoMapper(applicationAssembly)
+                .AddAutoMapper(typeof(TodoProfile))
                 .AddSwaggerGen()
                 .RegisterRepositories()
                 .RegisterService()
+                .AddCorsPolicies()
                 .AddControllers();
             return builder;
         }

@@ -16,8 +16,8 @@ services:
 
   database:
       image: postgres:14.1-alpine
-      container_name: sample-db
-      hostname: demo-db
+      container_name: todo-db
+      hostname: todo-db
       environment:
         - POSTGRES_USER=postgres
         - POSTGRES_PASSWORD=postgres

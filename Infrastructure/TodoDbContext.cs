@@ -13,6 +13,8 @@ namespace Infrastructure
 	public sealed class TodoDbContext : DbContext
 	{
 		public DbSet<TodoEntity> Todos { get; set; }
+        public DbSet<CountryEntity> Countries { get; set; }
+        public DbSet<PeopleEntity> People { get; set; }
         public TodoDbContext(DbContextOptions<TodoDbContext> options) : base(options) { }
         public TodoDbContext()
 		{

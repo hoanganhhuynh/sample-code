@@ -9,6 +9,6 @@ public class TodoProfile : Profile
     public TodoProfile()
     {
         CreateMap<TodoEntity, CreateTodoDto>().ReverseMap();
-        CreateMap<TodoEntity, UpdateTodoDto>().ReverseMap();
+        CreateMap<TodoEntity, GetTodoDto>().ReverseMap();
     }
 }

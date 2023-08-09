@@ -1,0 +1,57 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to my example</h1>
+</div>
+
+
+<div class="main">
+    
+
+    <div class="content">
+        <div class="form-container">
+            <div class="title">Input form</div>
+            <div class="form">
+                <div class="row">
+                    <div>Firstname</div>
+                    <div><input id="ifirstName" /></div>
+                </div>
+                <div class="row">
+                    <div>Lastname</div>
+                    <div><input id="ilastName" /></div>
+                </div>
+                <div class="row">
+                    <div>Gender</div>
+                    <div>
+                        <select id='gender'>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div>Country</div>
+                    <div>
+                        <select id='country'>
+                            
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row cols">
+                    <div class="btnBar">
+                        <button type="button" id="createBtn">Create</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <table id="grid"></table>
+    </div>
+</div>
+

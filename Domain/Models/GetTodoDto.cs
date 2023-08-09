@@ -2,7 +2,7 @@ using System;
 
 namespace Domain.Models;
 
-public class UpdateTodoDto
+public class GetTodoDto
 {
     public Guid Id { get; set; }
     public string Title { get; set; }

@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Net.Http.Headers;
 
 namespace TodoAPI.Extensions
 {
@@ -27,15 +28,32 @@ namespace TodoAPI.Extensions
 
         internal static IServiceCollection RegisterRepositories(this IServiceCollection services)
         {
-            services.AddTransient<ITodoRepository, TodoRepository>();
+            services.AddScoped<ITodoRepository, TodoRepository>();
+            services.AddScoped<IPeopleRepository, PeopleRepository>();
+            services.AddScoped<ICountryRepository, CountryRepository>();
             return services;
         }
 
         internal static IServiceCollection RegisterService(this IServiceCollection services)
         {   
             services.AddTransient<ITodoService, TodoService>();
+            services.AddTransient<IPeopleService, PeopleService>();
+            services.AddTransient<ICountryService, CountryService>();
             return services;
         }
+
+        internal static IServiceCollection AddCorsPolicies(this IServiceCollection serviceCollection)
+        => serviceCollection.AddCors(options => options.AddDefaultPolicy(
+            policy => {
+                
+                policy
+                    //.WithOrigins("https://localhost:5001/", "https://localhost:7200/")
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .SetIsOriginAllowed(origin => true) // allow any origin
+                    .AllowCredentials();
+            })
+        );
     }
 }
 

@@ -6,7 +6,7 @@ namespace Domain.Contracts
 {
 	public interface ITodoRepository
 	{
-		Task<TodoEntity> Fetch(Guid id);
+		Task<TodoEntity> Get(Guid id);
 		Task Create(TodoEntity entity);
 		Task Update(TodoEntity entity);
 		Task Delete (TodoEntity entity);

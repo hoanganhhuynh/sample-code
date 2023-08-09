@@ -27,7 +27,7 @@ namespace Infrastructure.Repositories
             await _dbContext.SaveChangesAsync().ConfigureAwait(true);
         }
 
-        public async Task<TodoEntity> Fetch(Guid id)
+        public async Task<TodoEntity> Get(Guid id)
         {
             return await _dbContext.Todos.Where(entity => entity.Id == id).SingleOrDefaultAsync();
         }

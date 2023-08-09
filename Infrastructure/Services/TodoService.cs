@@ -12,7 +12,7 @@ namespace Infrastructure.Services
 	public class TodoService : ITodoService
 	{
 		private readonly ITodoRepository _todoRepository;
-        private readonly IMapper _mapper;    
+        private readonly IMapper _mapper;
 		public TodoService(
             ITodoRepository todoRepository,
             IMapper mapper
@@ -30,20 +30,20 @@ namespace Infrastructure.Services
 
         public async Task Delete(Guid id)
         {
-            var entity = await Fetch(id);
+            var entity = await Get(id);
             if (entity == null)
             {
                 throw new KeyNotFoundException($"Todo with id {id} is not found");
             }
-            await _todoRepository.Create(entity);
+            await _todoRepository.Delete(entity);
         }
 
-        public async Task<TodoEntity> Fetch(Guid id)
+        public async Task<TodoEntity> Get(Guid id)
         {
-            return await _todoRepository.Fetch(id);
+            return await _todoRepository.Get(id);
         }
 
-        public async Task Update(UpdateTodoDto createTodo)
+        public async Task Update(GetTodoDto createTodo)
         {
             var isExist = await _todoRepository.IsExist(createTodo.Id);
             if (!isExist)

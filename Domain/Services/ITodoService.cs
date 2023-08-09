@@ -7,8 +7,8 @@ namespace Domain.Services
 {
 	public interface ITodoService
 	{
-		Task<TodoEntity> Fetch(Guid id);
-		Task Update(UpdateTodoDto todo);
+		Task<TodoEntity> Get(Guid id);
+		Task Update(GetTodoDto todo);
 		Task Delete(Guid id);
 		Task Create(CreateTodoDto todo);
 	}
